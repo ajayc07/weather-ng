@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favourite-cities',
@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./favourite-cities.component.scss']
 })
 export class FavouriteCitiesComponent {
+
+  @Output() cityUpdated = new EventEmitter();
+
+  public favouriteCities = [
+    'London',
+    'Birmingham,',
+    'Cardiff'
+  ]
+
+  public emitCitySelection(city: string): void {
+    this.cityUpdated.emit(city);
+  }
 
 }

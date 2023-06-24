@@ -4,11 +4,11 @@
 
 <section class="weather-container">
     <main id="main-container">
-        <app-weather-detail></app-weather-detail>
-        <app-weekly-detail></app-weekly-detail>
+        <app-weather-detail [city]="selectedCity" [currentForeCast]="foreCastData?.nearestForecast"></app-weather-detail>
+        <app-weekly-detail [weeklyForeCastData]="foreCastData?.currentWeatherData"></app-weekly-detail>
     </main>
 
     <aside id="favourites">
-        <app-favourite-cities></app-favourite-cities>
+        <app-favourite-cities (cityUpdated)="updateCitySelection($event)"></app-favourite-cities>
     </aside>
 </section>

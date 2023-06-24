@@ -1,24 +1,11 @@
-<section class="weekly-detail-container">
+<section class="weekly-detail-container" *ngIf="nextFourDayForecast?.length">
     <ul class="weekly-detail">
-        <li class="day-report">
-            <div class="temperature">32&deg;C</div>
-            <div class="desc">Rain</div>
-        </li>
-        <li class="day-report">
-            <div class="temperature">32&deg;</div>
-            <div class="desc">Rain</div>
-        </li>
-        <li class="day-report">
-            <div class="temperature">32&deg;</div>
-            <div class="desc">Rain</div>
-        </li>
-        <li class="day-report">
-            <div class="temperature">32&deg;</div>
-            <div class="desc">Rain</div>
-        </li>
-        <li class="day-report">
-            <div class="temperature">32&deg;</div>
-            <div class="desc">Rain</div>
-        </li>
+        <ng-container *ngFor="let foreCast of nextFourDayForecast">
+            <li class="day-report">
+                <div class="temperature">{{foreCast?.temperature}}&deg;C</div>
+                <img [src]="'https://openweathermap.org/img/wn/'+foreCast?.icon+'.png'" alt="">
+                <div class="desc">{{foreCast?.weatherDescription | titlecase}}</div>
+            </li>
+        </ng-container>
     </ul>
 </section>

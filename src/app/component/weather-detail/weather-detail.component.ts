@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-weather-detail',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./weather-detail.component.scss']
 })
 export class WeatherDetailComponent {
+
+  @Input() currentForeCast: any;
+  @Input() city: any;
+
+  public weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 }

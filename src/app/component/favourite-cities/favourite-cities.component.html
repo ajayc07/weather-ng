@@ -1,0 +1,8 @@
+<section class="fav-city">
+    <h2>Favourite Cities</h2>
+    <ul>
+        <li *ngFor="let city of favouriteCities" (click)="emitCitySelection(city)">
+            {{city | titlecase}}
+        </li>
+    </ul>
+</section>

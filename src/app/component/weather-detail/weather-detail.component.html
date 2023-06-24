@@ -1,22 +1,35 @@
 <section class="weather-detail-container">
-    <h2>London</h2>
-    <div class="weather-report">
-        <aside class="temperature-stats">
-            <div class="temperature">
-                32&deg;
-            </div>
-            <ul class="other-stats">
-                <li>Wind</li>
-                <li>Pressure</li>
-                <li>Humidity</li>
-            </ul>
-        </aside>
-        <aside class="stats">
-            <ul class="secondary-stats">
-                <li>Today</li>
-                <li><h3>Saturday</h3></li>
-                <li>Cloudy</li>
-            </ul>
-        </aside>
-    </div>
+    <ng-container *ngIf="currentForeCast">
+        <h2 class="city">{{city}}</h2>
+        <div class="weather-report">
+            <aside class="temperature-stats">
+                <div class="temperature">
+                    {{currentForeCast?.temperature}}&deg;C
+                </div>
+                <ul class="other-stats">
+                    <li>Wind: {{currentForeCast?.wind}}m/s</li>
+                    <li>Pressure: {{currentForeCast?.pressure}}hPa</li>
+                    <li>Humidity: {{currentForeCast?.humidity}}%</li>
+                </ul>
+            </aside>
+            <aside class="stats">
+                <ul class="secondary-stats">
+                    <li>{{currentForeCast?.forecastDate.toLocaleDateString()}}</li>
+                    <li>
+                        <h3>{{weekdays[currentForeCast?.forecastDate?.getDay()]}}</h3>
+                    </li>
+                    <li class="weather-desc-img">
+                        <img [src]="'https://openweathermap.org/img/wn/'+currentForeCast?.icon+'.png'" alt="icon">
+                        {{currentForeCast?.weatherDescription | titlecase}}
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!currentForeCast">
+        <h2>
+            Please select a city to get weather data
+        </h2>
+    </ng-container>
 </section>
