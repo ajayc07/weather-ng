@@ -1,0 +1,32 @@
+.weekly-detail-container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .weekly-detail {
+        padding: 0 12px;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+
+        .day-report {
+            width: 160px;
+            height: 180px;
+            border: 1px solid #000;
+            
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+
+            .temperature {
+                font-size: 2rem;
+            }
+
+            .desc {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

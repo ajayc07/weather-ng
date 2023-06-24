@@ -1,0 +1,35 @@
+header {
+
+    height: 64px;
+    width: 100%;
+    padding: 0 24px;
+    
+    display: flex;
+    align-items: center;
+
+    .title {
+        margin: 0;
+        font-size: 2rem;
+    }
+}
+
+section.weather-container {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 64px);
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    main#main-container {
+        width: 75%;
+        background-color: bisque;
+    }
+
+    aside#favourites {
+        width: 25%;
+        background-color: aqua;
+    }
+
+}
